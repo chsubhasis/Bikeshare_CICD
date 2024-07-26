@@ -1,0 +1,128 @@
+# Package Overview
+package_name: bikeshare_model
+
+# Data Files
+training_data_file: bike-rental-dataset.csv
+
+# Variables
+# The variable we are attempting to predict (cnt)
+target: cnt
+
+pipeline_name: bikeshare_model
+pipeline_save_file: bikeshare__model_output_v
+
+# Features that will go inside processing pipeline
+features:
+  - dteday
+  - season
+  - hr
+  - holiday
+  - weekday
+  - workingday
+  - weathersit
+  - temp
+  - atemp
+  - hum
+  - windspeed
+  - yr            # generated from dteday colum <--Before pipeline alongwith loading the data
+  - mnth          # generated from dteday colum <--Before pipeline alongwith loading the data
+
+
+unused_fields:  # Features to drop before pipeline
+  - casual
+  - registered
+
+
+# Features names
+
+date_var: dteday
+yr_var: yr
+mnth_var: mnth
+season_var: season
+hr_var: hr
+holiday_var: holiday
+workingday_var: workingday
+weekday_var: weekday
+weathersit_var: weathersit
+temp_var: temp
+atemp_var: atemp
+hum_var: hum
+windspeed_var: windspeed
+
+
+# Mappings for Ordinal categorical features
+
+yr_mappings: 
+  2011: 0
+  2012: 1
+
+mnth_mappings:
+  January: 0
+  February: 1
+  December: 2
+  March: 3
+  November: 4
+  April: 5
+  October: 6
+  May: 7
+  September: 8
+  June: 9
+  July: 10
+  August: 11
+
+season_mappings:
+  spring: 0
+  winter: 1
+  summer: 2
+  fall: 3
+
+weathersit_mappings:
+  Heavy Rain: 0
+  Light Rain: 1
+  Mist: 2
+  Clear: 3
+
+holiday_mappings:
+  Yes: 0
+  No: 1
+
+workingday_mappings:
+  No: 0
+  Yes: 1
+
+hr_mappings:
+  4am: 0
+  3am: 1
+  5am: 2
+  2am: 3
+  1am: 4
+  12am: 5
+  6am: 6
+  11pm: 7
+  10pm: 8
+  10am: 9
+  9pm: 10
+  11am: 11
+  7am: 12
+  9am: 13
+  8pm: 14
+  2pm: 15
+  1pm: 16
+  12pm: 17
+  3pm: 18
+  4pm: 19
+  7pm: 20
+  8am: 21
+  6pm: 22
+  5pm: 23
+
+  
+# Set train/test split
+test_size: 0.20
+
+# Set the random seed
+random_state: 42
+
+# Alogrithm parameters
+n_estimators: 100
+max_depth: 10

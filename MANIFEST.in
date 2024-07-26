@@ -1,0 +1,18 @@
+include *.txt
+include *.md
+include *.pkl
+recursive-include ./bikeshare_model *
+
+include bikeshare_model/datasets/bike-rental-dataset.csv
+include bikeshare_model/datasets/test.csv
+include bikeshare_model/trained_models/*.pkl
+include bikeshare_model/VERSION
+include bikeshare_model/config.yml
+
+include ./requirements/requirements.txt
+include ./requirements/test_requirements.txt
+exclude *.log
+exclude *.cfg
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

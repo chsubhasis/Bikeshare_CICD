@@ -1,0 +1,19 @@
+uvicorn>=0.16.0,<0.18.0
+fastapi>=0.64.0,<1.0.0
+pydantic #>=1.8.1,<2.0.0
+requests>=2.23.0,<2.24.0
+
+# testing requirements
+pytest>=6.2.3,<6.3.0
+
+# repo maintenance tooling 
+#black>=22.0.0,<23.0.0
+#flake8>=3.9.0,<3.10.0
+#mypy==0.812
+#isort==5.8.0
+
+# After uploding your package in PyPi use the given below
+#bikeshare-model==0.0.1
+
+# If locally copyied whl file inside bike_sharing_api then use given below
+bikeshare_model-0.0.1-py3-none-any.whl
