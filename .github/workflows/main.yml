@@ -91,7 +91,7 @@ jobs:
     - name: Push the Docker Image
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-      run: docker push $DOCKER_USER/bikeshare
+      run: docker push $DOCKER_USER/bikeshare:latest1
         
     - name: Logout to Docker
       run: docker logout
