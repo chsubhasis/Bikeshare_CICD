@@ -1,4 +1,4 @@
-name: Push a Docker Image
+name: CI Pipeline
 on:
   push:
     branches:
@@ -86,12 +86,12 @@ jobs:
     - name: Build the Docker image for Fastapi app
       env:
        DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-      run: docker build . -f Dockerfile -t $DOCKER_USER/bikeshare:git_bikeshare_cicd
+      run: docker build . -f Dockerfile -t $DOCKER_USER/bikeshare:git_bikeshare_cicd_ec2
         
     - name: Push the Docker Image
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-      run: docker push $DOCKER_USER/bikeshare:git_bikeshare_cicd
+      run: docker push $DOCKER_USER/bikeshare:git_bikeshare_cicd_ec2
         
     - name: Logout to Docker
       run: docker logout
