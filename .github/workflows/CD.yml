@@ -1,0 +1,26 @@
+name: CD Pipeline
+
+# Only trigger, when the build workflow succeeded i.e. CI Pipeline
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull Docker Image
+        env: 
+          DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
+        run: sudo docker pull $DOCKER_USER/bikeshare:git_bikeshare_cicd
+    
+      - name: Delete Old Docker Container
+        run: sudo docker rm -f bikeshare-fastapi-container || true
+    
+      - name: Run Docker Container
+        env: 
+          DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
+        run: sudo docker run -it -d -p 8001:8001 --name bikeshare-fastapi-container $DOCKER_USER/bikeshare:git_bikeshare_cicd
