@@ -40,7 +40,7 @@ jobs:
         env: 
           DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
         run: sudo docker run -it -d -p 9090:9090 -u root -v "$PWD/prometheus-data/prometheus.yml:/etc/prometheus/prometheus.yml" -v "$PWD/prometheus-data:/prometheus" --name=prom_cont prom/prometheus
-		
+
   grafana:
     runs-on: self-hosted
 
