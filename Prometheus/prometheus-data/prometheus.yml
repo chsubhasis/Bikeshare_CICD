@@ -1,0 +1,28 @@
+# my global config
+global:
+  scrape_interval: 20s    # Set the scrape interval to every 20 seconds. Default is every 1 minute.
+  evaluation_interval: 20s  # Evaluate rules every 20 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+
+# A scrape configuration containing exactly one endpoint to scrape:
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+
+
+  - job_name: "prometheus"
+    metrics_path: '/metrics'
+    scheme: 'http'
+    scrape_interval: 10s       # override default value
+    scrape_timeout: 10s       # override default value
+    static_configs:
+      - targets: ["172.19.0.1:9090"]     # The target here it's Prometheus itself.
+
+
+  - job_name: "bikeshare-app"
+    metrics_path: '/metrics'
+    scheme: 'http'
+    scrape_interval: 10s       # override default value
+    scrape_timeout: 10s       # override default value
+    static_configs:
+      - targets: ["172.19.0.1:8001"]     # The target here it's Prometheus itself.

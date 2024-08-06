@@ -17,3 +17,5 @@ pytest>=6.2.3,<6.3.0
 
 # If locally copyied whl file inside bike_sharing_api then use given below
 bikeshare_model-0.0.1-py3-none-any.whl
+
+prometheus-client
