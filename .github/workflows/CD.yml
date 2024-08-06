@@ -28,11 +28,7 @@ jobs:
   prometheus:
     runs-on: self-hosted
 
-    steps:
-      - name: Run prometheus
-        env: 
-          DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-    
+    steps:    
       - name: Delete Old Docker Container
         run: sudo docker rm -f prom_cont || true
     
@@ -45,10 +41,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Run grafana
-        env: 
-          DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-    
       - name: Delete Old Docker Container
         run: sudo docker rm -f grafana_cont || true
     
