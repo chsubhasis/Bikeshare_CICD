@@ -15,7 +15,7 @@ jobs:
       - name: Pull Docker Image
         env: 
           DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-        run: sudo docker pull $DOCKER_USER/bikeshare:git_bikeshare_cicd
+        run: sudo docker pull $DOCKER_USER/bikeshare:git_bikeshare_cicd_ec2
     
       - name: Delete Old Docker Container
         run: sudo docker rm -f bikeshare-fastapi-container || true
@@ -23,4 +23,4 @@ jobs:
       - name: Run Docker Container
         env: 
           DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-        run: sudo docker run -it -d -p 8001:8001 --name bikeshare-fastapi-container $DOCKER_USER/bikeshare:git_bikeshare_cicd
+        run: sudo docker run -it -d -p 8001:8001 --name bikeshare-fastapi-container $DOCKER_USER/bikeshare:git_bikeshare_cicd_ec2
