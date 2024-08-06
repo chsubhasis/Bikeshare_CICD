@@ -12,7 +12,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Pull Docker Image
+      - name: Pull Docker Image git_bikeshare_cicd_ec
         env: 
           DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
         run: sudo docker pull $DOCKER_USER/bikeshare:git_bikeshare_cicd_ec2
