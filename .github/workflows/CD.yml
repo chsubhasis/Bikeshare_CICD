@@ -23,28 +23,4 @@ jobs:
       - name: Run Docker Container
         env: 
           DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-        run: sudo docker run -it -d -p 8001:8001 --name bikeshare-fastapi-container $DOCKER_USER/bikeshare:git_bikeshare_cicd_ec2
-
-  prometheus:
-    runs-on: self-hosted
-
-    steps:    
-      - name: Delete Old Docker Container
-        run: sudo docker rm -f prom_cont || true
-    
-      - name: Run Docker Container
-        env: 
-          DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-        run: sudo docker run -it -d -p 9090:9090 -u root -v "$PWD/prometheus-data/prometheus.yml:/etc/prometheus/prometheus.yml" -v "$PWD/prometheus-data:/prometheus" --name=prom_cont prom/prometheus
-
-  grafana:
-    runs-on: self-hosted
-
-    steps:
-      - name: Delete Old Docker Container
-        run: sudo docker rm -f grafana_cont || true
-    
-      - name: Run Docker Container
-        env: 
-          DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-        run: sudo docker run -it -d -p 3000:3000 -u root -v "Bikeshare_CICD/Grafana/grafana-data:/var/lib/grafana" --env-file "Bikeshare_CICD/Grafana/grafana-data/env.list" --name=grafana_cont grafana/grafana-oss
+        run: sudo docker run -it -d -p 8001:8001 --name bikeshare-fastapi-container $DOCKER_USER/bikeshare:git_bikeshare_cicd_ec2  
