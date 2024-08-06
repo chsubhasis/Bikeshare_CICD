@@ -16,7 +16,7 @@ scrape_configs:
     scrape_interval: 10s       # override default value
     scrape_timeout: 10s       # override default value
     static_configs:
-      - targets: ["172.19.0.1:9090"]     # The target here it's Prometheus itself.
+      - targets: ["15.207.54.195:9090"]     # The target here it's Prometheus itself.
 
 
   - job_name: "bikeshare-app"
@@ -25,4 +25,4 @@ scrape_configs:
     scrape_interval: 10s       # override default value
     scrape_timeout: 10s       # override default value
     static_configs:
-      - targets: ["172.19.0.1:8001"]     # The target here it's Prometheus itself.
+      - targets: ["15.207.54.195:8001"]     # The target here it's Prometheus itself.
