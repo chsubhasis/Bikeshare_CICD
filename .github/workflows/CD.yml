@@ -47,4 +47,4 @@ jobs:
       - name: Run Docker Container
         env: 
           DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-        run: sudo docker run -it -d -p 3000:3000 -u root -v "Grafana/grafana-data:/var/lib/grafana" --env-file "Grafana/grafana-data/env.list" --name=grafana_cont grafana/grafana-oss
+        run: sudo docker run -it -d -p 3000:3000 -u root -v "/Bikeshare_CICD/Grafana/grafana-data:/var/lib/grafana" --env-file "/Bikeshare_CICD/Grafana/grafana-data/env.list" --name=grafana_cont grafana/grafana-oss
